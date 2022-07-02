@@ -1,3 +1,11 @@
+function setFormMessage(formElement, type, message){
+    const messageElement = formElement.querySelector('form-message');
+    messageElement.textContent = message;
+    messageElement.classList.remove('form-message-success', 'form-message-error');
+    messageElement.classList.add(`form-message ${type}`);
+}
+setFormMessage(loginForm, "success", 'you are loged in!');
+
 document.addEventListener("DOMContentLoaded", ()=>{
     const loginForm = document.querySelector('#login');
     const createAccountForm = document.querySelector('#createAccount');
@@ -13,3 +21,5 @@ document.addEventListener("DOMContentLoaded", ()=>{
         createAccountForm.classList.add('form-hidden')
     });
 });
+
+axios.post('http://127.0.0.1:5500/index.html')
